@@ -1,2 +1,4 @@
 # jenkins_configuration
-Chef cookbook for setting up Jenkins and Conjur
+
+TODO: Enter the cookbook description here.
+
