@@ -17,29 +17,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
 images = ['cyberark/conjur', 'postgres', 'conjurinc/cli5']
 
 images.each do |image|
-	docker_image image do
-		action :pull_if_missing
-	end
+  docker_image image do
+    action :pull_if_missing
+  end
 end
 
 docker_container 'database' do
-	container_name 'database'
-	repo 'postgres'
-	network_mode 'pipeline'
-	action :run
+  container_name 'database'
+  repo 'postgres'
+  network_mode 'pipeline'
+  action :run
 end
 
 docker_container 'conjur' do
-	container_name 'conjur-master'
-	repo 'cyberark/conjur'
-	network_mode 'pipeline'
-	command 'server'
-	port '3000:3000'
-	env ['DATABASE_URL=postgres://postgres@database/postgres', 'CONJUR_DATA_KEY=#{key}']
-	action :run
+  container_name 'conjur-master'
+  repo 'cyberark/conjur'
+  network_mode 'pipeline'
+  command 'server'
+  port '3000:3000'
+  env ['DATABASE_URL=postgres://postgres@database/postgres', 'CONJUR_DATA_KEY=#{key}']
+  action :run
 end
-

@@ -18,7 +18,8 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/jenkins_configuration'
- #ChangeLog
- #[10/18/2017] - Added all neccessary change to the .chef folder and to the files to account for my environment.  Defined initial recipes
+# ChangeLog
+# [10/18/2017] - Added all neccessary change to the .chef folder and to the files to account for my environment.  Defined initial recipes
+# [10/26/2017] - Added docker sock mapping. 
 
- depends 'docker_configuration'
+depends 'docker_configuration'

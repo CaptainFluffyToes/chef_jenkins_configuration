@@ -18,23 +18,23 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 docker_network 'pipeline' do
-	action :create
+  action :create
 end
 
 docker_image 'jenkins' do
-	repo 'jenkins/jenkins'
-	tag 'latest'
-	action :pull_if_missing
+  repo 'jenkins/jenkins'
+  tag 'latest'
+  action :pull_if_missing
 end
 
 docker_container 'jenkins-master' do
-	container_name 'jenkins-master'
-	repo 'jenkins/jenkins'
-	tag 'latest'
-	network_mode 'pipeline'
-	user 'root'
-	volumes ['/mnt/Config/jenkins:/var/jenkins_home']
-	port '8080:8080'
-	restart_policy 'always'
-	action :run
+  container_name 'jenkins-master'
+  repo 'jenkins/jenkins'
+  tag 'latest'
+  network_mode 'pipeline'
+  user 'root'
+  volumes ['/mnt/Config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock']
+  port '8080:8080'
+  restart_policy 'always'
+  action :run
 end

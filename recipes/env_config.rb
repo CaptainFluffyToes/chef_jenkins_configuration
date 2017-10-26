@@ -17,36 +17,36 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#Update Apt for installation of CIFS
+# Update Apt for installation of CIFS
 apt_update 'Updates Apt' do
-	action :update
+  action :update
 end
 
-#Install CIFS for mounts
+# Install CIFS for mounts
 package 'Install CIFS' do
-	package_name 'cifs-utils'
-	action :install
+  package_name 'cifs-utils'
+  action :install
 end
 
-#Create the configuration direction
+# Create the configuration direction
 directory 'Create configuration directory' do
-	path '/mnt/Config'
-	action :create
-	not_if { ::Dir.exist?('/mnt/Config') }
+  path '/mnt/Config'
+  action :create
+  not_if { ::Dir.exist?('/mnt/Config') }
 end
 
-#Mount the directory on fileshare that houses all of the configurations
+# Mount the directory on fileshare that houses all of the configurations
 mount 'Mount configuration share for containers' do
-	device '//storage.solsys.com/config'
-	fstype 'cifs'
-	options 'rw,username=media_user,password=test'
-	mount_point '/mnt/Config'
-	action [:mount, :enable]
+  device '//storage.solsys.com/config'
+  fstype 'cifs'
+  options 'rw,username=media_user,password=test'
+  mount_point '/mnt/Config'
+  action [:mount, :enable]
 end
 
-#Create the direction for the Jenkins configuration
+# Create the direction for the Jenkins configuration
 directory 'Create configuration directory for Jenkins' do
-	path '/mnt/Config/jenkins'
-	action :create
-	not_if { ::Dir.exist?('/mnt/Config/jenkins') }
+  path '/mnt/Config/jenkins'
+  action :create
+  not_if { ::Dir.exist?('/mnt/Config/jenkins') }
 end
