@@ -32,12 +32,16 @@ docker_container 'database' do
   action :run
 end
 
+File.open("key.file") do |f|
+  f.write(Test)
+end
+
 execute 'Getting key for conjur' do
   command 'docker run --rm cyberark/conjur data-key generate > key.file'
   action :run
 end
 
-key = File.read(key.file)
+key = File.read("key.file")
 
 docker_container 'conjur' do
   container_name 'conjur-master'
