@@ -29,7 +29,7 @@ end
 
 docker_container 'jenkins-master' do
   container_name 'jenkins-master'
-  repo 'jenkins/jenkins'
+  repo 'captainfluffytoes/jenkins_docker'
   tag 'latest'
   network_mode 'pipeline'
   user 'root'
