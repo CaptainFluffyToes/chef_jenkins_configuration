@@ -20,6 +20,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # source_url 'https://github.com/<insert_org_here>/jenkins_configuration'
 # ChangeLog
 # [10/18/2017] - Added all neccessary change to the .chef folder and to the files to account for my environment.  Defined initial recipes
-# [10/26/2017] - Added docker sock mapping. 
+# [10/26/2017] - Added docker sock mapping.
+# [10/26/2017] - Added docker run command to get data key
 
 depends 'docker_configuration'
