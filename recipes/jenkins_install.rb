@@ -22,7 +22,7 @@ docker_network 'pipeline' do
 end
 
 docker_image 'jenkins' do
-  repo 'jenkins/jenkins'
+  repo 'captainfluffytoes/jenkins_docker'
   tag 'latest'
   action :pull_if_missing
 end
