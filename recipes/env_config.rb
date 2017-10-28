@@ -30,9 +30,9 @@ end
 
 # Create the configuration direction
 directory 'Create configuration directory' do
-  path '/mnt/Config'
+  path '/mnt/config'
   action :create
-  not_if { ::Dir.exist?('/mnt/Config') }
+  not_if { ::Dir.exist?('/mnt/config') }
 end
 
 # Mount the directory on fileshare that houses all of the configurations
@@ -40,13 +40,13 @@ mount 'Mount configuration share for containers' do
   device '//storage.solsys.com/config'
   fstype 'cifs'
   options 'rw,username=media_user,password=test'
-  mount_point '/mnt/Config'
+  mount_point '/mnt/config'
   action [:mount, :enable]
 end
 
 # Create the direction for the Jenkins configuration
 directory 'Create configuration directory for Jenkins' do
-  path '/mnt/Config/jenkins'
+  path '/mnt/config/jenkins'
   action :create
-  not_if { ::Dir.exist?('/mnt/Config/jenkins') }
+  not_if { ::Dir.exist?('/mnt/config/jenkins') }
 end

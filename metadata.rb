@@ -21,6 +21,7 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # ChangeLog
 # [10/18/2017] - Added all neccessary change to the .chef folder and to the files to account for my environment.  Defined initial recipes
 # [10/26/2017] - Added docker sock mapping.
-# [10/26/2017] - Added docker run command to get data key
+# [10/26/2017] - Added docker run command to get data key.
+# [10/28/2017] - Removed conjur recipe.
 
 depends 'docker_configuration'
