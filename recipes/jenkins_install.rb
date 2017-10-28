@@ -35,6 +35,5 @@ docker_container 'jenkins-master' do
   user 'root'
   volumes ['/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock']
   port '8080:8080'
-  restart_policy 'always'
   action :run
 end
