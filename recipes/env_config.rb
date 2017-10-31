@@ -41,7 +41,7 @@ mount 'Mount configuration share for containers' do
   fstype 'cifs'
   options 'rw,username=media_user,password=test'
   mount_point '/mnt/config'
-  action [:mount, :enable]
+  action [:mount]
 end
 
 # Create the direction for the Jenkins configuration
