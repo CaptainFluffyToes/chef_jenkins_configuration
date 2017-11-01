@@ -22,18 +22,18 @@ docker_network 'pipeline' do
 end
 
 docker_image 'jenkins' do
-  repo 'captainfluffytoes/jenkins_docker'
+  repo 'captainfluffytoes/docker_jenkins'
   tag 'latest'
   action :pull_if_missing
 end
 
 docker_container 'jenkins-master' do
   container_name 'jenkins-master'
-  repo 'captainfluffytoes/jenkins_docker'
+  repo 'captainfluffytoes/docker_jenkins'
   tag 'latest'
   network_mode 'pipeline'
   user 'root'
-  volumes ['/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock']
+  volumes ['/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock', '/mnt/config/chef:/chef']
   port '8080:8080'
   action :run
 end

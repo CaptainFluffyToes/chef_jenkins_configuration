@@ -50,3 +50,10 @@ directory 'Create configuration directory for Jenkins' do
   action :create
   not_if { ::Dir.exist?('/mnt/config/jenkins') }
 end
+
+# Create the direction for the chef configuration
+directory 'Create configuration directory for chef' do
+  path '/mnt/config/chef'
+  action :create
+  not_if { ::Dir.exist?('/mnt/config/chef') }
+end
