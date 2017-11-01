@@ -22,14 +22,14 @@ docker_network 'pipeline' do
 end
 
 docker_image 'jenkins' do
-  repo 'captainfluffytoes/docker_jenkins'
+  repo 'captainfluffytoes/docker_admin_jenkins'
   tag 'latest'
   action :pull_if_missing
 end
 
 docker_container 'jenkins-master' do
   container_name 'jenkins-master'
-  repo 'captainfluffytoes/docker_jenkins'
+  repo 'captainfluffytoes/docker_admin_jenkins'
   tag 'latest'
   network_mode 'pipeline'
   user 'root'
