@@ -33,7 +33,7 @@ docker_container 'jenkins-master' do
   tag 'latest'
   network_mode 'pipeline'
   user 'root'
-  volumes ['/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock', '/mnt/config/chef:/chef']
+  volumes ['/etc/localtime:/etc/localtime:ro', '/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock', '/mnt/config/chef:/chef:ro']
   port '8080:8080'
   action :run
 end
