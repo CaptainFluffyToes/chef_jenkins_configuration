@@ -4,7 +4,7 @@ maintainer_email 'DJKhan85@gmail.com'
 license 'All Rights Reserved'
 description 'Installs/Configures jenkins_configuration'
 long_description 'Installs/Configures jenkins_configuration'
-version '0.1.2'
+version '0.1.3'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -23,5 +23,5 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # [10/26/2017] - Added docker sock mapping.
 # [10/26/2017] - Added docker run command to get data key.
 # [10/28/2017] - Removed conjur recipe.
-
+# [11/22/2017] - Cleaned up env_config code to be more efficient.
 depends 'docker_configuration'
