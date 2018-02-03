@@ -32,8 +32,7 @@ docker_container 'jenkins-master' do
   repo 'captainfluffytoes/docker_admin_jenkins'
   tag 'latest'
   network_mode 'pipeline'
-  user 'root'
-  volumes ['/etc/localtime:/etc/localtime:ro', '/mnt/config/jenkins:/var/jenkins_home', '/var/run/docker.sock:/var/run/docker.sock', '/mnt/config/chef:/chef:ro']
+  volumes ['/etc/localtime:/etc/localtime:ro', '/mnt/config/jenkins:/backup', '/mnt/config/chef:/chef:ro']
   port '8080:8080'
   action :run
 end
